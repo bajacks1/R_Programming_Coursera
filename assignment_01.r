@@ -93,7 +93,6 @@ complete <- function(directory, ID = 1:332) {
   
 }
 
-
 corr <- function(directory,threshold=0){
   
   #### Write a function that takes a directory of data files and 
@@ -116,7 +115,6 @@ corr <- function(directory,threshold=0){
   ## Return a numeric vector of correlations
   ## NOTE: Do not round the result!
   
-  
   newpath <- paste("./",directory,sep="")
   filelist <- list.files(path = newpath)
   filepaths <- paste(newpath,"/",filelist,sep="")
@@ -124,10 +122,12 @@ corr <- function(directory,threshold=0){
     tmp1 <- read.csv(filepaths[i])
     tmp2 <- subset(tmp1,is.na(tmp1$sulfate)==FALSE & is.na(tmp1$nitrate)==FALSE)
     if (nrow(tmp2)>= threshold){
-      df <- rbind(df,cor(tmp2$sulfate,tmp2$nitrate))
+      df <- c(df,cor(tmp2$sulfate,tmp2$nitrate))
     }
   }
-  df
-  ##summary(df)
+  
+  d <- unlist(df)
+  d
+  
   
 }

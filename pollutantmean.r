@@ -1,5 +1,6 @@
 pollutantmean <- function(directory, pollutant, ID = 1:332) {
   
+  #### PART 1:
   #### INSTRUCTIONS: Write a function named 'pollutantmean' that calculates 
   #### the mean of a pollutant (sulfate or nitrate) across a specified list 
   #### of monitors. The function 'pollutantmean' takes 
@@ -33,17 +34,17 @@ pollutantmean <- function(directory, pollutant, ID = 1:332) {
   }
   
   
-
+  
   if (pollutant == "sulfate") {
     mean.default(df$sulfate,na.rm=TRUE) 
-    }
+  }
   else if (pollutant == "nitrate") {
     mean.default(df$nitrate,na.rm=TRUE)
-    }
+  }
   else {
     print("PARAMETER ERROR: Pollutant type incorrectly defined. Choose from sulfate or nitrate.")
   }
-   
+  
   
   
 }
